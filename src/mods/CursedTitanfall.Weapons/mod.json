@@ -1,5 +1,5 @@
 {
-    "Name": "CursedTitanfall.Weapons",
+    "Name": "CursedTitanfall-extras.Weapons",
     "Description": "Cursed Titanfall module containing changes made to individual weapons and titan abilities.",
     "Version": "1.0.0",
     "RequiredOnClient": false,

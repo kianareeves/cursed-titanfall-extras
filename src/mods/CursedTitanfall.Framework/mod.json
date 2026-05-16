@@ -1,5 +1,5 @@
 {
-    "Name": "CursedTitanfall.Framework",
+    "Name": "CursedTitanfall-extras.Framework",
     "Description": "A basic framework that adds several callback registration functions that are utilized by various parts of the mod.",
     "Version": "1.0.0",
     "RequiredOnClient": false,

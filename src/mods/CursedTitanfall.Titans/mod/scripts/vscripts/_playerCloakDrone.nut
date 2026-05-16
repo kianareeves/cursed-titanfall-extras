@@ -21,54 +21,17 @@ void function Init_PlayerCloakDrone()
 // Modified variant of the function located at /ai/_ai_cloak_drone.gnut
 entity function SpawnPlayerCloakDrone( int team, vector origin, vector angles, entity owner )
 {
-	int droneCount = GetNPCCloakedDrones().len()
+	//left names the same but this should spawn a boss titan? taken from frag code ..becuase I have not figured out elite titan spawning yet...
+	entity npc = Spawn_Viper( origin, < 0 , 0 , 0 >, team, 0 )
+    if ( IsValid( npc ) )
+   {
+   		NPCFollowsPlayer( npc, owner )
+   		EnableTitanRodeo( npc )
+        npc.s.isHidden <- null
+        npc.s.fx <- null
+   }
+return npc
 
-	// add some minor randomness to the spawn location as well as an offset based on number of drones in the world.
-	origin += < RandomIntRange( -64, 64 ), RandomIntRange( -64, 64 ), 300 + (droneCount * 128) >
-
-	entity cloakedDrone = CreateGenericDrone( team, origin, angles )
-	SetSpawnOption_AISettings( cloakedDrone, "npc_drone_cloaked" )
-
-	//these enable global damage callbacks for the cloakedDrone
-	cloakedDrone.s.isHidden <- false
-	cloakedDrone.s.fx <- null
-
-	DispatchSpawn( cloakedDrone )
-	SetTeam( cloakedDrone, team )
-	SetTargetName( cloakedDrone, "Cloak Drone" )
-	cloakedDrone.SetTitle( "#NPC_CLOAK_DRONE" )
-	cloakedDrone.SetMaxHealth( 250 )
-	cloakedDrone.SetHealth( 250 )
-	cloakedDrone.SetTakeDamageType( DAMAGE_YES )
-	cloakedDrone.SetDamageNotifications( true )
-	cloakedDrone.SetDeathNotifications( true )
-	cloakedDrone.Solid()
-	cloakedDrone.Show()
-	cloakedDrone.EnableNPCFlag( NPC_IGNORE_ALL )
-
-	EmitSoundOnEntity( cloakedDrone, CLOAKED_DRONE_HOVER_LOOP_SFX )
-	EmitSoundOnEntity( cloakedDrone, CLOAKED_DRONE_LOOPING_SFX )
-	EmitSoundOnEntity( cloakedDrone, CLOAKED_DRONE_WARP_IN_SFX )
-
-	cloakedDrone.s.fx = CreateDroneCloakBeam( cloakedDrone )
-
-	SetVisibleEntitiesInConeQueriableEnabled( cloakedDrone, true )
-
-    thread PlayerCloakedDronePathThink( cloakedDrone, owner )
-	thread CloakedDroneCloakThink( cloakedDrone )
-
-	#if R1_VGUI_MINIMAP
-		cloakedDrone.Minimap_SetDefaultMaterial( $"vgui/hud/cloak_drone_minimap_orange" )
-	#endif
-	cloakedDrone.Minimap_SetAlignUpright( true )
-	cloakedDrone.Minimap_AlwaysShow( TEAM_IMC, null )
-	cloakedDrone.Minimap_AlwaysShow( TEAM_MILITIA, null )
-	cloakedDrone.Minimap_SetObjectScale( MINIMAP_CLOAKED_DRONE_SCALE )
-	cloakedDrone.Minimap_SetZOrder( MINIMAP_Z_NPC )
-
-	ShowName( cloakedDrone )
-
-	return cloakedDrone
 }
 
 // Modified variant of the function located at /ai/_ai_cloak_drone.gnut

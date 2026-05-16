@@ -43,8 +43,8 @@ void function CreateChildCloaker( entity player, entity titan )
             return
         entity drone = SpawnPlayerCloakDrone( titan.GetTeam(), titan.GetOrigin(), titan.GetAngles(), player )
         SetPlayerCloakedDrone( player, drone )
-        printt("Creating untimed cloaker drone")
-        PlayerCloakedDrone_WarpIn( drone )
+        printt("Creating untimed northstar drone")
+//        PlayerCloakedDrone_WarpIn( drone )
         thread RespawnDroneAfterDeath( drone, player, titan )
     }
 
@@ -92,8 +92,8 @@ void function CreateChildCloaker_Timed( entity player, entity titan, float timeo
             return
         entity drone = SpawnPlayerCloakDrone( titan.GetTeam(), titan.GetOrigin(), titan.GetAngles(), player )
         SetPlayerCloakedDrone( player, drone )
-        printt("Creating timed cloaker drone")
-        PlayerCloakedDrone_WarpIn( drone )
+        printt("Creating timed northstar")
+  //      PlayerCloakedDrone_WarpIn( drone )
     }
     entity drone = expect entity( GetPlayerCloakedDrone( player ) )
     thread Timeout_KillChildCloaker( player, titan, timeout )

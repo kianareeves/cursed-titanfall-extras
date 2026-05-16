@@ -63,10 +63,10 @@ void function DoNuclearExplosion( entity projectile, int eDamageSourceIdGoesHere
 
 	//	Thread end
 	OnThreadEnd( function() : ( projectile, inflictor ) {
-			if ( !IsValid(projectile) || projectile.GrenadeHasIgnited() )
-				return
-			projectile.GrenadeIgnite()
-
+		//	if ( !IsValid(projectile) || projectile.GrenadeHasIgnited() )
+		//		return
+		//	projectile.GrenadeIgnite()
+// this line seems to cause the grenades nuke function to occasionally error out when called on northstars core rockets, hopefully removing fixes.
 			if ( IsValid(inflictor) )
 				inflictor.Destroy()
 		}

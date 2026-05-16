@@ -3,4 +3,6 @@ WeaponData
     "OnProjectileCollision" 									"OnProjectileCollision_titanweapon_flightcore_rockets"
 
     "projectile_explosion_delay"					"0.5"
+    "projectile_launch_speed"						"9000"
+
 }

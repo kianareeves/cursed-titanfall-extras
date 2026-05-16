@@ -41,7 +41,7 @@ void function FragEvents_Init( )
 	AddRandomEventCallback_FragGrenade( CreateClusterExplosion )
 	AddRandomEventCallback_FragGrenade( SpawnTurretTick_Frag )
 	//if ( GameRules_GetGameMode() != FD )
-		//AddRandomEventCallback_FragGrenade( TempFreeze )
+    AddRandomEventCallback_FragGrenade( TempFreeze )
 	AddRandomEventCallback_FragGrenade( SpawnReaper_ForPlayer )
 	AddRandomEventCallback_FragGrenade( CreateRandomQuantity_Batteries )
 	AddRandomEventCallback_FragGrenade( Rocket_Smite )
@@ -49,8 +49,8 @@ void function FragEvents_Init( )
 	AddRandomEventCallback_FragGrenade( NuclearDetonation )
 	AddRandomEventCallback_FragGrenade( CreateRandomWeapon )
 	AddRandomEventCallback_FragGrenade( CreateDomeShield )
-	//if ( IsModuleLoaded( "cs.fd" ) )
-	//	AddRandomEventCallback_FragGrenade( SpawnBoss_ForCallback )
+	if ( IsModuleLoaded( "cs.fd" ) )
+    AddRandomEventCallback_FragGrenade( SpawnBoss_ForCallback )
 	//AddRandomEventCallback_FragGrenade( CombatMRVN )
 	// If CursedTitanfall.FrontierDefense is enabled, spawn a random boss titan
 	// Scorch gas trap ignition?
@@ -189,7 +189,7 @@ void function CombatMRVN( entity weapon )
 }
 */
 
-/*
+
 void function SpawnBoss_ForCallback( entity weapon )
 {
 	#if SERVER
@@ -231,7 +231,7 @@ void function SpawnBoss_ForCallback( entity weapon )
 
 	#endif
 }
-*/
+
 
 // Taken from Karma's Mod abuse mod
 void function SpawnTurretTick_Frag( entity weapon )
