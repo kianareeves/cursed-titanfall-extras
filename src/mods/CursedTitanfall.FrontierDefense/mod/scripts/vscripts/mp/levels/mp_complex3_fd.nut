@@ -38,7 +38,6 @@ void function initFrontierDefenseData()
 	} // 12 grunt droppod spawns in the same area
 	WaveSpawn_WaitEnemyAliveAmount( wave1, 4 )
     WaveSpawn_Announce( wave1, "EliteTitans", 0.0 )
-    WaveSpawn_BossTitanSpawn_Random( wave1, [ eFD_Bosses.Blisk ], < -7468, -612, 576>, 0.0, "", 4.2 )
     WaveSpawn_BossTitanSpawn_Random( wave1, [ eFD_Bosses.Richter ], < -7468, -612, 576>, 0.0, "", 4.2 )
     WaveSpawn_TitanSpawn( wave1, "Sniper", < -3126, -2052, 691 >, -0.0, "", 1.6 )
 
