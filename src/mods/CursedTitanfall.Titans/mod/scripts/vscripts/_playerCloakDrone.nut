@@ -25,7 +25,6 @@ entity function SpawnPlayerCloakDrone( int team, vector origin, vector angles, e
 	entity npc = Spawn_Viper( origin, < 0 , 0 , 0 >, team, 0 )
     if ( IsValid( npc ) )
    {
-   		NPCFollowsPlayer( npc, owner )
    		EnableTitanRodeo( npc )
         npc.s.isHidden <- null
         npc.s.fx <- null
