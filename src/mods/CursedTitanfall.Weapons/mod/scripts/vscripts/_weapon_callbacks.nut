@@ -33,17 +33,17 @@ void function Init_Custom_Weapon_Callbacks()
 }
 void function TacticalNuke ( entity target, var damageInfo  )
 {
-if ( RandomInt( 100 ) != 0 )
+if ( RandomInt( 33 ) != 0 )
 return
 	// mostly copied from the sh_frag_events file
 	entity rocket = DamageInfo_GetInflictor( damageInfo )
 	entity attacker = DamageInfo_GetAttacker( damageInfo )
 #if SERVER
 RadiusDamageData radiusDamage
-radiusDamage.explosionDamage = 10 // Same formula as explosionDamageHeavyArmor, just using 75 instead of 2500 for the base damage amount
-radiusDamage.explosionDamageHeavyArmor = 50 // NPC nuke titan damage is caluclated from the formula ( playerExplosionCount / actualExplosionCount ) * 2500 where 2500 is the default amount per explosion with 10 explosions from a normal nuclear payload
-radiusDamage.explosionRadius = 35 // Nuclear payload outer radius for players starts at 600 for the first impact, then expands outwards to 750. 675 is the average
-radiusDamage.explosionInnerRadius = 10
+radiusDamage.explosionDamage = 50 // Same formula as explosionDamageHeavyArmor, just using 75 instead of 2500 for the base damage amount
+radiusDamage.explosionDamageHeavyArmor = 500 // NPC nuke titan damage is caluclated from the formula ( playerExplosionCount / actualExplosionCount ) * 2500 where 2500 is the default amount per explosion with 10 explosions from a normal nuclear payload
+radiusDamage.explosionRadius = 500 // Nuclear payload outer radius for players starts at 600 for the first impact, then expands outwards to 750. 675 is the average
+radiusDamage.explosionInnerRadius = 250
 
 thread DoNuclearExplosion( rocket, eDamageSourceId.mp_weapon_frag_grenade, radiusDamage )
 #endif
