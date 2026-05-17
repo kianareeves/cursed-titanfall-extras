@@ -23,7 +23,7 @@ WeaponData
 	"aimassist_disable_ads_humansonly"				"1"
 
 	// Menu Stats
-	"stat_damage" 									"210"
+	"stat_damage" 									"80"
 	"stat_range"  									"90"
 	"stat_accuracy"   								"30"
 	"stat_rof"										"60"
@@ -62,7 +62,7 @@ WeaponData
 
 	MP_BASE
 	{
-		"damage_near_value"   							"200"
+		"damage_near_value"   							"300"
 		"damage_far_value"								"300"
 		"damage_near_value_titanarmor"					"300"
 		"damage_far_value_titanarmor" 					"300"
@@ -150,7 +150,7 @@ WeaponData
 	"ammo_default_total"							"1500"
 
 	// Behavior
-	"fire_rate"   									"37.5"
+	"fire_rate"   									"0.4"
 	"zoom_time_in"									"0.1"
 	"zoom_time_out"   								"0.1"
 	"zoom_fov"										"55"

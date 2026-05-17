@@ -57,8 +57,8 @@ void function TacticalNuke ( entity target, var damageInfo  )
 
 #if SERVER
 RadiusDamageData radiusDamage
-radiusDamage.explosionDamage = 200 // Same formula as explosionDamageHeavyArmor, just using 75 instead of 2500 for the base damage amount
-radiusDamage.explosionDamageHeavyArmor = 500 // NPC nuke titan damage is caluclated from the formula ( playerExplosionCount / actualExplosionCount ) * 2500 where 2500 is the default amount per explosion with 10 explosions from a normal nuclear payload
+radiusDamage.explosionDamage = 300 // Same formula as explosionDamageHeavyArmor, just using 75 instead of 2500 for the base damage amount
+radiusDamage.explosionDamageHeavyArmor = 550 // NPC nuke titan damage is caluclated from the formula ( playerExplosionCount / actualExplosionCount ) * 2500 where 2500 is the default amount per explosion with 10 explosions from a normal nuclear payload
 radiusDamage.explosionRadius = 450 // Nuclear payload outer radius for players starts at 600 for the first impact, then expands outwards to 750. 675 is the average
 radiusDamage.explosionInnerRadius = 250
 
