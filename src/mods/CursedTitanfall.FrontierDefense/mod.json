@@ -1,5 +1,5 @@
 {
-    "Name": "CursedTitanfall.FrontierDefense",
+    "Name": "CursedTitanfall-extras.FrontierDefense",
     "Description": "Cursed Titanfall module containing changes made to frontier defense waves and AI",
     "Version": "1.0.0",
     "RequiredOnClient": false,
