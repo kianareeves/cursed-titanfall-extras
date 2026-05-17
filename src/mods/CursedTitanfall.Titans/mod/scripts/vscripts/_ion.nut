@@ -39,7 +39,7 @@ void function Cleanup_IonEnergyAbsorber( entity player, entity titan )
 
 void function FilterEnergyDamage( entity titan, var damageInfo )
 {
-    // TODO: This entire function might be broken?
+    // TODO.md: This entire function might be broken?
     int damageSourceId = DamageInfo_GetDamageSourceIdentifier( damageInfo )
     int damageFlags = DamageInfo_GetDamageFlags( damageInfo )
     int damageType = DamageInfo_GetDamageType( damageInfo )
