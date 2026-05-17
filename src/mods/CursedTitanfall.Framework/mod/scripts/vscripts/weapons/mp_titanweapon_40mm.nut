@@ -113,7 +113,7 @@ int function FireWeaponPlayerAndNPC( WeaponPrimaryAttackParams attackParams, boo
 		if( hasMortarShotMod )
 			speed *= 0.6
 
-		//TODO:: Calculate better attackParams.dir if auto-titan using mortarShots
+		//TODO.md:: Calculate better attackParams.dir if auto-titan using mortarShots
 		entity bolt = weapon.FireWeaponBolt( attackParams.pos, attackParams.dir, speed, damageTypes.gibBullet | DF_IMPACT | DF_EXPLOSION | DF_RAGDOLL | DF_KNOCK_BACK, DF_EXPLOSION | DF_RAGDOLL | DF_KNOCK_BACK, playerFired , 0 )
 		if ( bolt )
 		{
