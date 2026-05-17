@@ -15,7 +15,7 @@ void function Init_Custom_Weapon_Callbacks()
     AddCallback_OnProjectileCollision_weapon_wingman( Wingman_Teleport )
 	AddCallback_OnProjectileCollision_weapon_smr( SpawnClusterMissile_smr )
 	AddCallback_OnProjectileCollision_weapon_wingman(DisplayPlayerCoords)
-    AddCallback_OnPrimaryAttackPlayer_weapon_sniper( KraberExplosiveRound_Misfire )
+	AddCallback_OnPrimaryAttackPlayer_weapon_sniper( KraberExplosiveRound_Misfire )
 	AddCallback_OnProjectileCollision_weapon_mgl( SpawnTick )
 	AddCallback_OnWeaponReload_weapon_alternator_smg( PhaseReload )
 	AddDamageCallbackSourceID( eDamageSourceId.mp_titanweapon_flightcore_rockets, TacticalNuke )
@@ -33,19 +33,22 @@ void function Init_Custom_Weapon_Callbacks()
 }
 void function TacticalNuke ( entity target, var damageInfo  )
 {
+if ( RandomInt( 100 ) != 0 )
+return
 	// mostly copied from the sh_frag_events file
 	entity rocket = DamageInfo_GetInflictor( damageInfo )
 	entity attacker = DamageInfo_GetAttacker( damageInfo )
 #if SERVER
 RadiusDamageData radiusDamage
-radiusDamage.explosionDamage = 47 // Same formula as explosionDamageHeavyArmor, just using 75 instead of 2500 for the base damage amount
-radiusDamage.explosionDamageHeavyArmor = 1562 // NPC nuke titan damage is caluclated from the formula ( playerExplosionCount / actualExplosionCount ) * 2500 where 2500 is the default amount per explosion with 10 explosions from a normal nuclear payload
-radiusDamage.explosionRadius = 1000 // Nuclear payload outer radius for players starts at 600 for the first impact, then expands outwards to 750. 675 is the average
-radiusDamage.explosionInnerRadius = 350
+radiusDamage.explosionDamage = 10 // Same formula as explosionDamageHeavyArmor, just using 75 instead of 2500 for the base damage amount
+radiusDamage.explosionDamageHeavyArmor = 50 // NPC nuke titan damage is caluclated from the formula ( playerExplosionCount / actualExplosionCount ) * 2500 where 2500 is the default amount per explosion with 10 explosions from a normal nuclear payload
+radiusDamage.explosionRadius = 35 // Nuclear payload outer radius for players starts at 600 for the first impact, then expands outwards to 750. 675 is the average
+radiusDamage.explosionInnerRadius = 10
 
 thread DoNuclearExplosion( rocket, eDamageSourceId.mp_weapon_frag_grenade, radiusDamage )
 #endif
 }
+
 #if SERVER
 void function Weapon_Epg_Collision( ProjectileCollisionParams params )
 {
