@@ -37,7 +37,7 @@ void function Init_Monarch_Healing_Shots( )
     AddCallback_OnPrimaryAttackPlayer_titancore_upgrade( UpgradeCore_ReInitPlayer )
     //RegisterNetworkedVariable( "monarch_reserve_health", SNDC_PLAYER_GLOBAL, SNVT_FLOAT_RANGE, 0.0, 0.0, 20000.0 )
     #endif
-    // TODO Implement a bar similar to Ion's energy bar for this to display available health pool.
+    // TODO.md Implement a bar similar to Ion's energy bar for this to display available health pool.
     //AddCallback_OnRegisteringCustomNetworkVars( RegisterNetworkVars )
 
     #if CLIENT

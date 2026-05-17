@@ -10,7 +10,7 @@ global function OrbitalStrike_Laser
 
 const STRIKE_MODEL = $"models/containers/can_red_soda.mdl"
 const ROCKET_START_HEIGHT = 6000
-const LASER_START_HEIGHT = 1000 // TODO: Make this taller after making the trace go through sky
+const LASER_START_HEIGHT = 1000 // TODO.md: Make this taller after making the trace go through sky
 const LASER_TIME_LENGTH = 7 // Must match charge length in the weapon
 const LASER_DAMAGE = 300
 const LASER_DAMAGE_RADIUS = 300

@@ -94,7 +94,7 @@ void function OnWeaponActivate_weapon_rocket_launcher( entity weapon )
 				SmartAmmo_SetMissileSpeedLimit( weapon, 1400 )
 		}
 
-		SmartAmmo_SetMissileShouldDropKick( weapon, false )  // TODO set to true to see drop kick behavior issues
+		SmartAmmo_SetMissileShouldDropKick( weapon, false )  // TODO.md set to true to see drop kick behavior issues
 		SmartAmmo_SetUnlockAfterBurst( weapon, true )
 	}
 
