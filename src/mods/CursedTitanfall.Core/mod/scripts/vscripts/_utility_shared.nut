@@ -359,7 +359,7 @@ table function StringToColors( string colorString, string delimiter = " " )
 	return Table
 }
 
-// TODO: Set return type to array<int> when SetColor() accepts this type
+// TODO.md: Set return type to array<int> when SetColor() accepts this type
 function ColorStringToArray( string colorString )
 {
 	array<string> tokens = split( colorString, " " )
