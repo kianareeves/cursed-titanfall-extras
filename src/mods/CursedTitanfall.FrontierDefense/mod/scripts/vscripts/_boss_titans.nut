@@ -594,7 +594,8 @@ void function ResetBossHealth( entity boss )
             boss.SetHealth( boss.GetMaxHealth() )
         wait regenTime / loopCount
     }
-
+    if ( !IsValid( boss ) || !IsAlive( boss ) )
+    return
     boss.SetHealth( boss.GetMaxHealth() )
     boss.ClearInvulnerable()
     //TitanCanStand( boss )
