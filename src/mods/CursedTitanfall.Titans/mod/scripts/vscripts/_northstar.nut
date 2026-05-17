@@ -1,4 +1,4 @@
-// TODO: Add function to spawn cloak drone and parent it to player titan. Follow position of player. If the drone dies, wait X duration before respawning a new one.
+// TODO.md: Add function to spawn cloak drone and parent it to player titan. Follow position of player. If the drone dies, wait X duration before respawning a new one.
 untyped
 global function Init_Northstar
 
@@ -12,11 +12,11 @@ void function Init_Northstar()
     {
         AddCallback_OnPilotBecomesTitan( CreateChildCloaker )
         AddCallback_OnTitanBecomesPilot( CleanupChildCloaker )
-        printt( "Drones enabled by default" )
+        printt( "Viper enabled by default" )
     }
     else{
         AddCallback_OnWeaponPrimaryAttack_titanability_smoke( CreateCloakDrone_For_Callback )
-        printt( "Drones require smoke" )
+        printt( "Viper require smoke" )
     }
     #endif
 }
@@ -29,7 +29,7 @@ void function ApplyPassiveOnLoadoutUpdate( entity titan, TitanLoadoutDef loadout
 	if ( loadout.titanClass != "northstar" || !IsValid( soul ) || !titan.IsTitan() )
 		return
     //CreateChildCloaker( titan )
-    printt("Creating cloaker drone")
+    printt("Creating Viper")
 }
 
 void function CreateChildCloaker( entity player, entity titan )
@@ -43,7 +43,7 @@ void function CreateChildCloaker( entity player, entity titan )
             return
         entity drone = SpawnPlayerCloakDrone( titan.GetTeam(), titan.GetOrigin(), titan.GetAngles(), player )
         SetPlayerCloakedDrone( player, drone )
-        printt("Creating untimed northstar drone")
+        printt("Creating untimed Viper")
 //        PlayerCloakedDrone_WarpIn( drone )
         thread RespawnDroneAfterDeath( drone, player, titan )
     }
@@ -92,7 +92,7 @@ void function CreateChildCloaker_Timed( entity player, entity titan, float timeo
             return
         entity drone = SpawnPlayerCloakDrone( titan.GetTeam(), titan.GetOrigin(), titan.GetAngles(), player )
         SetPlayerCloakedDrone( player, drone )
-        printt("Creating timed northstar")
+        printt("Creating timed Viper")
   //      PlayerCloakedDrone_WarpIn( drone )
     }
     entity drone = expect entity( GetPlayerCloakedDrone( player ) )
