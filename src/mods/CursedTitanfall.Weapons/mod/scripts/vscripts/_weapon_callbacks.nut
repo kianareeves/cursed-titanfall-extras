@@ -19,6 +19,8 @@ void function Init_Custom_Weapon_Callbacks()
 	AddCallback_OnProjectileCollision_weapon_mgl( SpawnTick )
 	AddCallback_OnWeaponReload_weapon_alternator_smg( PhaseReload )
 	AddDamageCallbackSourceID( eDamageSourceId.mp_titanweapon_flightcore_rockets, TacticalNuke )
+	AddDamageCallbackSourceID( eDamageSourceId.mp_titanweapon_stun_laser, MonarchTrap )
+
 
 	//AddCallback_OnPrimaryAttackPlayer_weapon_lmg(Thread_PreventCamping)
 
@@ -31,18 +33,33 @@ void function Init_Custom_Weapon_Callbacks()
 	AddCallback_NPCLeeched( ReaperLeeched )
     #endif
 }
+void function MonarchTrap ( entity target, var damageInfo )
+{
+	#if SERVER
+	entity attacker = DamageInfo_GetAttacker( damageInfo )
+	if ( !IsValid( attacker ) || !IsValid( target ) )
+    return
+	vector origin = OriginToGround( target.GetOrigin() )
+vector angles = < 0, 90, 0 >
+int team = attacker.GetTeam()
+float duration = RandomFloatRange( 1.0, 7.5 )
+entity shield = CreateBubbleShieldWithSettings( team, origin, angles, attacker, duration )
+#endif
+}
 void function TacticalNuke ( entity target, var damageInfo  )
 {
-if ( RandomInt( 33 ) != 0 )
-return
+//if ( RandomInt( 33 ) != 0 )
+//return
+//had people ask for no random chance and just slower fire so trying this for now.
 	// mostly copied from the sh_frag_events file
 	entity rocket = DamageInfo_GetInflictor( damageInfo )
 	entity attacker = DamageInfo_GetAttacker( damageInfo )
+
 #if SERVER
 RadiusDamageData radiusDamage
-radiusDamage.explosionDamage = 50 // Same formula as explosionDamageHeavyArmor, just using 75 instead of 2500 for the base damage amount
+radiusDamage.explosionDamage = 200 // Same formula as explosionDamageHeavyArmor, just using 75 instead of 2500 for the base damage amount
 radiusDamage.explosionDamageHeavyArmor = 500 // NPC nuke titan damage is caluclated from the formula ( playerExplosionCount / actualExplosionCount ) * 2500 where 2500 is the default amount per explosion with 10 explosions from a normal nuclear payload
-radiusDamage.explosionRadius = 500 // Nuclear payload outer radius for players starts at 600 for the first impact, then expands outwards to 750. 675 is the average
+radiusDamage.explosionRadius = 450 // Nuclear payload outer radius for players starts at 600 for the first impact, then expands outwards to 750. 675 is the average
 radiusDamage.explosionInnerRadius = 250
 
 thread DoNuclearExplosion( rocket, eDamageSourceId.mp_weapon_frag_grenade, radiusDamage )
