@@ -62,7 +62,7 @@ WeaponData
 
 	MP_BASE
 	{
-		"damage_near_value"   							"300"
+		"damage_near_value"   							"200"
 		"damage_far_value"								"300"
 		"damage_near_value_titanarmor"					"300"
 		"damage_far_value_titanarmor" 					"300"
@@ -150,7 +150,7 @@ WeaponData
 	"ammo_default_total"							"1500"
 
 	// Behavior
-	"fire_rate"   									"0.4"
+	"fire_rate"   									"35.2"
 	"zoom_time_in"									"0.1"
 	"zoom_time_out"   								"0.1"
 	"zoom_fov"										"55"
